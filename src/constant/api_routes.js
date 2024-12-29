@@ -7,8 +7,12 @@ const API_ROUTES = {
     BUS_OPERATOR_LIST: `${API_BASE_URL}/bus-operators`,
     BUS_OPERATOR_CREATE: `${API_BASE_URL}/bus-operators`,
     BUS_OPERATOR_EDIT: `${API_BASE_URL}/bus-operator`,
-    BUS_OPERATOR_UPDATE: `${API_BASE_URL}/bus-operators`
+    BUS_OPERATOR_UPDATE: `${API_BASE_URL}/bus-operators`,
 
+    ROUTE_LIST: `${API_BASE_URL}/routes`,
+    ROUTE_CREATE: `${API_BASE_URL}/routes`,
+    ROUTE_EDIT: `${API_BASE_URL}/route`,
+    ROUTE_UPDATE: `${API_BASE_URL}/routes`
 
   };
   

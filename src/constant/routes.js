@@ -9,7 +9,7 @@ const routes = {
 
     routeList: "/route-list",
     routeCreate: "/route-create",
-    routeEdit: "/route-edit",
+    routeEdit: "/route-edit/:id",
 
     login : "/login",
     register : "/register"
