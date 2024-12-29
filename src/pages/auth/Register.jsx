@@ -64,7 +64,6 @@ function Register() {
               id="name"
               name="name"
               type="text"
-              placeholder="John Doe"
               value={formData.name}
               onChange={handleChange}
               required
@@ -78,7 +77,6 @@ function Register() {
               id="phone_number"
               name="phone_number"
               type="tel"
-              placeholder="0712345678"
               value={formData.phone_number}
               onChange={handleChange}
               required
@@ -92,7 +90,6 @@ function Register() {
               id="email"
               name="email"
               type="email"
-              placeholder="name@example.com"
               value={formData.email}
               onChange={handleChange}
               required
@@ -106,7 +103,6 @@ function Register() {
               id="password"
               name="password"
               type="password"
-              placeholder="••••••••"
               value={formData.password}
               onChange={handleChange}
               required

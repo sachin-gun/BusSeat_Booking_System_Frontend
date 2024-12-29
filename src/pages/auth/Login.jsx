@@ -86,7 +86,6 @@ function Login() {
               id="phone_number"
               name="phone_number"
               type="tel"
-              placeholder="0712345678"
               value={formData.phone_number}
               onChange={handleChange}
               required
@@ -100,7 +99,6 @@ function Login() {
               id="password"
               name="password"
               type="password"
-              placeholder="••••••••"
               value={formData.password}
               onChange={handleChange}
               required
