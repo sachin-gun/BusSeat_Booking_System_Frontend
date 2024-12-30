@@ -1,7 +1,7 @@
 import './App.css'
 import 'flowbite';
 import Login from './pages/auth/Login';
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import routes from './constant/routes';
 import Register from './pages/auth/Register';
 import RouteCreate from './pages/route/routeCreate/RouteCreate';
@@ -15,6 +15,9 @@ import OperatorView from './pages/Operator/OperatorView';
 import BusList from './pages/bus/BusList/BusList';
 import BusCreate from './pages/bus/BusCreate/BusCreate';
 import BusEdit from './pages/bus/BusEdit/busEdit';
+import ScheduleCreate from './pages/schedule/ScheduleCreate';
+import ScheduleList from './pages/schedule/ScheduleList';
+import ScheduleUpdate from './pages/schedule/ScheduleUpdate';
 
 function App() {
 
@@ -40,6 +43,10 @@ function App() {
           <Route path={routes.busCreate} element={<BusCreate/>} />
           <Route path={routes.busList} element={<BusList/>} />
           <Route path={routes.busEdit} element={<BusEdit/>} />
+
+          <Route path={routes.scheduleCreate} element={<ScheduleCreate/>} />
+          <Route path={routes.scheduleList} element={<ScheduleList/>} />
+          <Route path={routes.scheduleEdit} element={<ScheduleUpdate/>} />
 
        </Route>
     </Routes>

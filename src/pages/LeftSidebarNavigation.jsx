@@ -41,6 +41,15 @@ const LeftSidebarNavigation = () => {
               </Link>
             </li>
            
+            <li>
+              <Link
+                to={routes.scheduleList}
+                className="block p-2 rounded hover:bg-gray-700 transition"
+              >
+                Schedule
+              </Link>
+            </li>
+           
 
            
           </ul>

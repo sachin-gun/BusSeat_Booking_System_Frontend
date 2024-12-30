@@ -11,10 +11,13 @@ const routes = {
     routeEdit: "/route-edit/:id",
     routeView: "/route-view/:id",
 
- 
     busList: "/bus-list",
     busCreate: "/bus-create",
     busEdit: "/bus-edit/:id",
+
+    scheduleList: "/schedule-list",
+    scheduleCreate: "/schedule-create",
+    scheduleEdit: "/schedule-edit/:id",
 
 
 

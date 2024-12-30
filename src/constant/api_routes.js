@@ -16,13 +16,17 @@ const API_ROUTES = {
     ROUTE_UPDATE: `${API_BASE_URL}/routes/:id`,
     ROUTE_DELETE: `${API_BASE_URL}/routes/:id`,
 
-
-
     BUS_LIST: `${API_BASE_URL}/buses`,
     BUS_CREATE: `${API_BASE_URL}/buses`,
     BUS_EDIT: `${API_BASE_URL}/bus`,
     BUS_UPDATE: `${API_BASE_URL}/buses/:id`,
     BUS_DELETE: `${API_BASE_URL}/buses/:id`,
+
+    SCHEDULE_LIST: `${API_BASE_URL}/schedules`,
+    SCHEDULE_CREATE: `${API_BASE_URL}/schedules`,
+    SCHEDULE_EDIT: `${API_BASE_URL}/schedules`,
+    SCHEDULE_UPDATE: `${API_BASE_URL}/schedules/:id`,
+    SCHEDULE_DELETE: `${API_BASE_URL}/schedules`,
 
   };
   
