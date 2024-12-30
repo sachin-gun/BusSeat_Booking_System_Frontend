@@ -18,6 +18,9 @@ import BusEdit from './pages/bus/BusEdit/busEdit';
 import ScheduleCreate from './pages/schedule/ScheduleCreate';
 import ScheduleList from './pages/schedule/ScheduleList';
 import ScheduleUpdate from './pages/schedule/ScheduleUpdate';
+import PermitCreate from './pages/permit/PermitCreate';
+import PermitList from './pages/permit/PermitList';
+import PermitEdit from './pages/permit/PermitEdit';
 
 function App() {
 
@@ -47,6 +50,10 @@ function App() {
           <Route path={routes.scheduleCreate} element={<ScheduleCreate/>} />
           <Route path={routes.scheduleList} element={<ScheduleList/>} />
           <Route path={routes.scheduleEdit} element={<ScheduleUpdate/>} />
+
+          <Route path={routes.permitCreate} element={<PermitCreate/>} />
+          <Route path={routes.permitList} element={<PermitList/>} />
+          <Route path={routes.permitEdit} element={<PermitEdit/>} />
 
        </Route>
     </Routes>

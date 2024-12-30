@@ -19,7 +19,9 @@ const routes = {
     scheduleCreate: "/schedule-create",
     scheduleEdit: "/schedule-edit/:id",
 
-
+    permitList : "/permit-list",
+    permitCreate : "/permit-create",
+    permitEdit : "/permit-edit/:id",
 
     login : "/login",
     register : "/register"

@@ -49,6 +49,15 @@ const LeftSidebarNavigation = () => {
                 Schedule
               </Link>
             </li>
+
+            <li>
+              <Link
+                to={routes.permitList}
+                className="block p-2 rounded hover:bg-gray-700 transition"
+              >
+                Permit
+              </Link>
+            </li>
            
 
            

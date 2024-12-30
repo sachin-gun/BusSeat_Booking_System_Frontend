@@ -28,6 +28,12 @@ const API_ROUTES = {
     SCHEDULE_UPDATE: `${API_BASE_URL}/schedules/:id`,
     SCHEDULE_DELETE: `${API_BASE_URL}/schedules`,
 
+    PERMIT_LIST: `${API_BASE_URL}/permits`,
+    PERMIT_CREATE: `${API_BASE_URL}/permits`,
+    PERMIT_EDIT: `${API_BASE_URL}/permit`,
+    PERMIT_UPDATE: `${API_BASE_URL}/permits/:id`,
+    PERMIT_DELETE: `${API_BASE_URL}/permits`,
+
   };
   
   export default API_ROUTES;
