@@ -26,7 +26,12 @@ const routes = {
     reservationList : "/reservation-list",
     reservationCreate : "/reservation-create",
     reservationEdit : "/reservation-edit/:id",
+    reservationConfirm : "/reservation-confirm/:id",
+    reservationPayment : "/reservation-payment/:id",
 
+
+    myBookings :"/my-bookings",
+    
     login : "/login",
     register : "/register"
 

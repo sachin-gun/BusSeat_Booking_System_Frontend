@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button, Label, Select, Card, Table } from "flowbite-react";
 import API_ROUTES from "../../constant/api_routes";
+import { Link } from "react-router-dom";
+import routes from "../../constant/routes";
 
 const ReservationCreate = () => {
   const [points, setPoints] = useState([]); // Holds unique points for dropdown
@@ -111,7 +113,9 @@ const ReservationCreate = () => {
                   {new Date(schedule.end_time).toLocaleString()}
                 </Table.Cell>
                 <Table.Cell>
-                    <Button className="bg-green-500">Book</Button>
+                    <Link to={`${routes.reservationConfirm.replace(":id", schedule._id)}`}>
+                        <Button className="bg-green-500">Book</Button>
+                    </Link>
                 </Table.Cell>
               </Table.Row>
             ))}

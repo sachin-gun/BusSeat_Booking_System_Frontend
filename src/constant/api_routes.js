@@ -29,12 +29,22 @@ const API_ROUTES = {
     SCHEDULE_UPDATE: `${API_BASE_URL}/schedules/:id`,
     SCHEDULE_DELETE: `${API_BASE_URL}/schedules`,
     SCHEDULE_BY_POINTS: `${API_BASE_URL}/schedule-by-points`,
+    AVAILABLE_SEATS: `${API_BASE_URL}/available-seats`,
+    PAYMENT_INTENT: `${API_BASE_URL}/payment-intent`,
+
 
     PERMIT_LIST: `${API_BASE_URL}/permits`,
     PERMIT_CREATE: `${API_BASE_URL}/permits`,
     PERMIT_EDIT: `${API_BASE_URL}/permit`,
     PERMIT_UPDATE: `${API_BASE_URL}/permits/:id`,
     PERMIT_DELETE: `${API_BASE_URL}/permits`,
+
+    BOOKING_CREATE: `${API_BASE_URL}/bookings`,
+    BOOKING_DATA: `${API_BASE_URL}/bookings/:id`,
+
+    PAYMENT_CREATE : `${API_BASE_URL}/payments`,
+
+    GET_BOOKINGS_BY_USER : `${API_BASE_URL}/bookings-by-user`
 
   };
   

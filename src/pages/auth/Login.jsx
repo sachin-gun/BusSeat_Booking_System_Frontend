@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Label, TextInput, Checkbox, Card } from "flowbite-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import routes from "../../constant/routes";
 import API_ROUTES from "../../constant/api_routes";
@@ -10,7 +10,7 @@ function Login() {
   const location = useLocation();
   const navigate = useNavigate();
   const { login } = useAuth();
-    
+
   const successMessage = location.state?.successMessage || "";
 
   const [formData, setFormData] = useState({
@@ -19,6 +19,9 @@ function Login() {
   });
 
   const [errorMessages, setErrorMessages] = useState([]);
+
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,7 +58,16 @@ function Login() {
 
       // Handle success (example: navigate to dashboard or handle token storage)
       login(response.data.token, response.data.user);
-      navigate(routes.busList)
+
+      const role = response.data.user?.role;
+      console.log(role);
+      if (role === "admin") {
+        navigate(routes.operatorList);
+      } else if (role === "bus_operator") {
+        navigate(routes.busList);
+      } else if (role === "customer") {
+        navigate(routes.reservationCreate);
+      }
     } catch (error) {
       // Handle API validation errors
       if (error.response && error.response.data) {
@@ -113,12 +125,6 @@ function Login() {
               ))}
             </div>
           )}
-
-          {/* Remember Me Checkbox */}
-          <div className="flex items-center gap-2">
-            <Checkbox id="remember" />
-            <Label htmlFor="remember" value="Remember me" />
-          </div>
 
           {/* Submit Button */}
           <Button type="submit" className="w-full bg-blue-500">

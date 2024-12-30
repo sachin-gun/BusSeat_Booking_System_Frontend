@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Label, TextInput, Card } from "flowbite-react";
 import axios from "axios";
 import API_ROUTES from "../../constant/api_routes";
 import routes from "../../constant/routes";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -19,6 +20,21 @@ function Register() {
 
   const navigate = useNavigate();
 
+  const { authState } = useAuth();
+
+  useEffect(() => {
+    // Redirect based on user role if already authenticated
+    if (authState?.token) {
+      const role = authState?.user?.role;
+      if (role === "admin") {
+        return <Navigate to={routes.operatorList} />;
+      } else if (role === "bus_operator") {
+        return <Navigate to={routes.busList} />;
+      } else if (role === "customer") {
+        return <Navigate to={routes.reservationCreate} />;
+      }
+    }
+  }, [authState]);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({

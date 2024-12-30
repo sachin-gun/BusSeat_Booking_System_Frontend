@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
+import routes from "../constant/routes";
+import { useNavigate } from "react-router-dom";
 
 const AUTH_STORAGE_KEY = "authData";
+
 
 export const useAuth = () => {
   const [authState, setAuthState] = useState({
     token: null,
     user: null,
   });
+
 
   // Load auth state from localStorage on initial render
   useEffect(() => {
@@ -34,6 +38,7 @@ export const useAuth = () => {
   const logout = () => {
     setAuthState({ token: null, user: null });
     localStorage.removeItem(AUTH_STORAGE_KEY);
+    window.location.href = "/login"
   };
 
   // Check if user is authenticated

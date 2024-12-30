@@ -1,14 +1,15 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, Table } from "flowbite-react";
 import axios from "axios";
 import routes from "../../constant/routes";
 import API_ROUTES from "../../constant/api_routes";
+import { useAuth } from "../../hooks/useAuth";
 
 const PermitList = () => {
   const [operators, setOperators] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { authState } = useAuth(); // Access authState
 
   // Fetch all operators
   const fetchOperators = async () => {
@@ -43,9 +44,11 @@ const PermitList = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Permits</h1>
-      <Link to={routes.permitCreate}>
-        <Button className="mb-4 bg-blue-500">Create Permit</Button>
-      </Link>
+      {authState?.user?.role == "bus_operator" && (
+        <Link to={routes.permitCreate}>
+          <Button className="mb-4 bg-blue-500">Create Permit</Button>
+        </Link>
+      )}
       <div className="max-h-screen overflow-y-auto">
         <Table>
           <Table.Head>
@@ -63,10 +66,15 @@ const PermitList = () => {
                 <Table.Cell>{operator?.bus_id?.seats_count}</Table.Cell>
                 <Table.Cell>{operator?.permit_status}</Table.Cell>
                 <Table.Cell className="flex gap-1">
-                  <Link to={`${routes.permitEdit.replace(":id", operator._id)}`}>
+                  <Link
+                    to={`${routes.permitEdit.replace(":id", operator._id)}`}
+                  >
                     <Button className="bg-blue-600">Edit</Button>
                   </Link>
-                  <Button color="failure" onClick={() => handleDelete(operator._id)}>
+                  <Button
+                    color="failure"
+                    onClick={() => handleDelete(operator._id)}
+                  >
                     Delete
                   </Button>
                 </Table.Cell>

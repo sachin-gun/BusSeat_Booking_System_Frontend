@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { Button, Select, TextInput } from 'flowbite-react';
-import API_ROUTES from '../../constant/api_routes';
-import routes from '../../constant/routes';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Button, Select, TextInput } from "flowbite-react";
+import API_ROUTES from "../../constant/api_routes";
+import routes from "../../constant/routes";
 
 const formatDateTimeLocal = (dateString) => {
   const date = new Date(dateString);
   const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  const hours = String(date.getHours()).padStart(2, '0');
-  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
   return `${year}-${month}-${day}T${hours}:${minutes}`;
 };
-
 
 const ScheduleUpdate = () => {
   const { id } = useParams();
@@ -23,29 +22,39 @@ const ScheduleUpdate = () => {
   const [busRoutes, setRoutes] = useState([]);
   const [buses, setBuses] = useState([]);
   const [scheduleData, setScheduleData] = useState({
-    route_id: '',
-    bus_id: '',
-    start_time: '',
-    end_time: '',
-    status: '',
+    route_id: "",
+    bus_id: "",
+    start_time: "",
+    end_time: "",
+    status: "",
   });
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [routesResponse, busesResponse, scheduleResponse] = await Promise.all([
-          axios.get(API_ROUTES.ROUTE_LIST), // Fetch routes 
-          axios.get(API_ROUTES.BUS_LIST), // Fetch buses
-          axios.get(`${API_ROUTES.SCHEDULE_EDIT}?id=${id}`)
-        ]);
+        const [routesResponse, busesResponse, scheduleResponse] =
+          await Promise.all([
+            axios.get(API_ROUTES.ROUTE_LIST), // Fetch routes
+            axios.get(API_ROUTES.BUS_LIST), // Fetch buses
+            axios.get(`${API_ROUTES.SCHEDULE_EDIT}?id=${id}`),
+          ]);
 
         setRoutes(routesResponse.data.routes || []);
         setBuses(busesResponse.data.buses || []);
-        setScheduleData(scheduleResponse.data.schedule || {});
+        setScheduleData(
+          {
+            route_id:   scheduleResponse?.data?.schedule?.route_id?._id,
+            bus_id: scheduleResponse?.data?.schedule?.bus_id?._id,
+            start_time: scheduleResponse?.data?.schedule?.start_time,
+            end_time: scheduleResponse?.data?.schedule?.end_time,
+            status:scheduleResponse?.data?.schedule?.status,
+          },
+          scheduleResponse.data.schedule || {}
+        );
       } catch (err) {
-        setError('Error fetching data.');
+        setError("Error fetching data.");
       } finally {
         setLoading(false);
       }
@@ -61,14 +70,17 @@ const ScheduleUpdate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
     try {
-      await axios.put(`${API_ROUTES.SCHEDULE_UPDATE.replace(":id", id)}`, scheduleData);
+      await axios.put(
+        `${API_ROUTES.SCHEDULE_UPDATE.replace(":id", id)}`,
+        scheduleData
+      );
       setTimeout(() => navigate(routes.scheduleList), 2000); // Navigate back to the operator list after 2 seconds
     } catch (err) {
-      setError('Failed to update schedule.');
+      setError("Failed to update schedule.");
       setLoading(false);
     }
   };
@@ -165,8 +177,8 @@ const ScheduleUpdate = () => {
           </Select>
         </div>
 
-        <Button type="submit" disabled={loading} className='bg-blue-500'>
-          {loading ? 'Updating...' : 'Update Schedule'}
+        <Button type="submit" disabled={loading} className="bg-blue-500">
+          {loading ? "Updating..." : "Update Schedule"}
         </Button>
       </form>
     </div>
