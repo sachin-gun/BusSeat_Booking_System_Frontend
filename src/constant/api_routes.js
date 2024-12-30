@@ -15,6 +15,7 @@ const API_ROUTES = {
     ROUTE_EDIT: `${API_BASE_URL}/route`,
     ROUTE_UPDATE: `${API_BASE_URL}/routes/:id`,
     ROUTE_DELETE: `${API_BASE_URL}/routes/:id`,
+    ROUTE_POINTS: `${API_BASE_URL}/unique-points`,
 
     BUS_LIST: `${API_BASE_URL}/buses`,
     BUS_CREATE: `${API_BASE_URL}/buses`,
@@ -27,6 +28,7 @@ const API_ROUTES = {
     SCHEDULE_EDIT: `${API_BASE_URL}/schedule`,
     SCHEDULE_UPDATE: `${API_BASE_URL}/schedules/:id`,
     SCHEDULE_DELETE: `${API_BASE_URL}/schedules`,
+    SCHEDULE_BY_POINTS: `${API_BASE_URL}/schedule-by-points`,
 
     PERMIT_LIST: `${API_BASE_URL}/permits`,
     PERMIT_CREATE: `${API_BASE_URL}/permits`,

@@ -21,6 +21,9 @@ import ScheduleUpdate from './pages/schedule/ScheduleUpdate';
 import PermitCreate from './pages/permit/PermitCreate';
 import PermitList from './pages/permit/PermitList';
 import PermitEdit from './pages/permit/PermitEdit';
+import ReservationCreate from './pages/reservation/ReservationCreate';
+import ReservationList from './pages/reservation/ReservationList';
+import ReservationEdit from './pages/reservation/ReservationEdit';
 
 function App() {
 
@@ -54,6 +57,10 @@ function App() {
           <Route path={routes.permitCreate} element={<PermitCreate/>} />
           <Route path={routes.permitList} element={<PermitList/>} />
           <Route path={routes.permitEdit} element={<PermitEdit/>} />
+
+          <Route path={routes.reservationCreate} element={<ReservationCreate/>} />
+          <Route path={routes.reservationList} element={<ReservationList/>} />
+          <Route path={routes.reservationEdit} element={<ReservationEdit/>} />
 
        </Route>
     </Routes>

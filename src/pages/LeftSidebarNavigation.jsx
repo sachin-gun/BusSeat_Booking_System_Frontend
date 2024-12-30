@@ -8,7 +8,7 @@ const LeftSidebarNavigation = () => {
       {/* Sidebar */}
       <div className="w-64 h-screen bg-gray-800 text-white flex flex-col">
         <div className="p-4 text-2xl font-bold border-b border-gray-700">
-          My App
+          Bus Ticket
         </div>
         <nav className="flex-1 p-4">
           <ul className="space-y-2">
@@ -56,6 +56,15 @@ const LeftSidebarNavigation = () => {
                 className="block p-2 rounded hover:bg-gray-700 transition"
               >
                 Permit
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to={routes.reservationList}
+                className="block p-2 rounded hover:bg-gray-700 transition"
+              >
+                Reserve
               </Link>
             </li>
            

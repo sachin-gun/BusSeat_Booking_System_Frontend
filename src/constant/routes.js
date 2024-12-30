@@ -23,6 +23,10 @@ const routes = {
     permitCreate : "/permit-create",
     permitEdit : "/permit-edit/:id",
 
+    reservationList : "/reservation-list",
+    reservationCreate : "/reservation-create",
+    reservationEdit : "/reservation-edit/:id",
+
     login : "/login",
     register : "/register"
 
