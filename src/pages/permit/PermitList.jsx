@@ -26,7 +26,7 @@ const PermitList = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this permit ?")) {
       try {
-        await axios.delete(`${API_ROUTES.PERMIT_DELETE.replace(":id", id)}`);
+        await axios.delete(`${API_ROUTES.PERMIT_DELETE}?id=${id}`);
         setOperators((prev) => prev.filter((op) => op._id !== id));
       } catch (error) {
         console.error("Error deleting operator:", error);
