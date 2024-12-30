@@ -24,7 +24,7 @@ const API_ROUTES = {
 
     SCHEDULE_LIST: `${API_BASE_URL}/schedules`,
     SCHEDULE_CREATE: `${API_BASE_URL}/schedules`,
-    SCHEDULE_EDIT: `${API_BASE_URL}/schedules`,
+    SCHEDULE_EDIT: `${API_BASE_URL}/schedule`,
     SCHEDULE_UPDATE: `${API_BASE_URL}/schedules/:id`,
     SCHEDULE_DELETE: `${API_BASE_URL}/schedules`,
 

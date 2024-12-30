@@ -3,12 +3,24 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Select, TextInput } from 'flowbite-react';
 import API_ROUTES from '../../constant/api_routes';
+import routes from '../../constant/routes';
+
+const formatDateTimeLocal = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
+};
+
 
 const ScheduleUpdate = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [routes, setRoutes] = useState([]);
+  const [busRoutes, setRoutes] = useState([]);
   const [buses, setBuses] = useState([]);
   const [scheduleData, setScheduleData] = useState({
     route_id: '',
@@ -26,7 +38,7 @@ const ScheduleUpdate = () => {
         const [routesResponse, busesResponse, scheduleResponse] = await Promise.all([
           axios.get(API_ROUTES.ROUTE_LIST), // Fetch routes 
           axios.get(API_ROUTES.BUS_LIST), // Fetch buses
-          axios.get(`/api/schedules/${id}`), // Fetch specific schedule
+          axios.get(`${API_ROUTES.SCHEDULE_EDIT}?id=${id}`)
         ]);
 
         setRoutes(routesResponse.data.routes || []);
@@ -53,8 +65,8 @@ const ScheduleUpdate = () => {
     setLoading(true);
 
     try {
-        await axios.post(API_ROUTES.SCHEDULE_CREATE, scheduleData); // Replace with your schedule creation API
-        navigate('/schedules'); // Redirect to schedules list
+      await axios.put(`${API_ROUTES.SCHEDULE_UPDATE.replace(":id", id)}`, scheduleData);
+      setTimeout(() => navigate(routes.scheduleList), 2000); // Navigate back to the operator list after 2 seconds
     } catch (err) {
       setError('Failed to update schedule.');
       setLoading(false);
@@ -80,9 +92,9 @@ const ScheduleUpdate = () => {
             required
           >
             <option value="">Select a Route</option>
-            {routes.map((route) => (
+            {busRoutes.map((route) => (
               <option key={route._id} value={route._id}>
-                {route.name}
+                {route.route_name}
               </option>
             ))}
           </Select>
@@ -116,7 +128,7 @@ const ScheduleUpdate = () => {
             id="start_time"
             type="datetime-local"
             name="start_time"
-            value={scheduleData.start_time}
+            value={formatDateTimeLocal(scheduleData.start_time)}
             onChange={handleChange}
             required
           />
@@ -130,7 +142,7 @@ const ScheduleUpdate = () => {
             id="end_time"
             type="datetime-local"
             name="end_time"
-            value={scheduleData.end_time}
+            value={formatDateTimeLocal(scheduleData.end_time)}
             onChange={handleChange}
             required
           />
@@ -153,7 +165,7 @@ const ScheduleUpdate = () => {
           </Select>
         </div>
 
-        <Button type="submit" disabled={loading}>
+        <Button type="submit" disabled={loading} className='bg-blue-500'>
           {loading ? 'Updating...' : 'Update Schedule'}
         </Button>
       </form>
