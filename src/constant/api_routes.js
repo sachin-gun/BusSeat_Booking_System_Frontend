@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = "http://34.224.215.19:5000/api";
 
 const API_ROUTES = {
     REGISTER: `${API_BASE_URL}users`,
