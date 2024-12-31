@@ -7,4 +7,8 @@ export default defineConfig({
     port: process.env.PORT as unknown as number,
   },
   plugins: [react()],
+  build: {
+    outDir: 'dist',
+  },
+  base: '/', // Keep this for default routing
 })
