@@ -14,7 +14,7 @@ import OperatorEdit from "./pages/Operator/OperatorEdit";
 import OperatorView from "./pages/Operator/OperatorView";
 import BusList from "./pages/bus/BusList/BusList";
 import BusCreate from "./pages/bus/BusCreate/BusCreate";
-import BusEdit from "./pages/bus/BusEdit/busEdit";
+import BusEdit from "./pages/bus/BusEdit/BusEdit";
 import ScheduleCreate from "./pages/schedule/ScheduleCreate";
 import ScheduleList from "./pages/schedule/ScheduleList";
 import ScheduleUpdate from "./pages/schedule/ScheduleUpdate";
