@@ -1,6 +1,8 @@
 const routes = {
    
 
+    app : "/",
+    
     operatorList: "/operator-list",
     operatorCreate: "/operator-create",
     operatorEdit: "/operator-edit/:id",

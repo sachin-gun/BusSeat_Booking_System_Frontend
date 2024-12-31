@@ -32,6 +32,7 @@ function App() {
     <>
       <div>
         <Routes>
+        <Route path={routes.app} element={<Login />} />
           <Route path={routes.login} element={<Login />} />
           <Route path={routes.register} element={<Register />} />
 
