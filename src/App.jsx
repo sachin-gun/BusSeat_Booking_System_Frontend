@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import routes from "./constant/routes";
 import Register from "./pages/auth/Register";
 import RouteCreate from "./pages/route/routeCreate/RouteCreate";
-import RouteList from "./pages/route/routeList/routeList";
+import RouteList from "./pages/route/routeList/RouteList";
 import RouteEdit from "./pages/route/routeEdit/RouteEdit";
 import Layout from "./pages/Layout";
 import OperatorCreate from "./pages/Operator/OperatorCreate";
