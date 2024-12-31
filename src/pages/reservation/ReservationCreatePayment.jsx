@@ -6,7 +6,7 @@ import { Elements, CardElement, useStripe, useElements } from "@stripe/react-str
 import API_ROUTES from "../../constant/api_routes";
 import routes from "../../constant/routes";
 
-const stripePromise = loadStripe("pk_test_51QbpVd08WMagMX2EPEF44hgDwXW5whp2dWK9pkIdfL0Pz9rC7q7WvaViG1WLNxf7aW1Zxee6fIeT2vANhuGv30e300f8POfMUF"); // Replace with your Stripe publishable key
+const stripePromise = loadStripe("pk_test_51Qbpu8BI3ddYlsnRRKNNF8o4f7xX0GzMK3EM9E8PcfXqsPrWxDv9ABLBYeb9cdq403UcbQth6D0oZMnr51LuDCyx00nwngnYqG"); // Replace with your Stripe publishable key
 
 const ReservationCreatePayment = () => {
     const { id } = useParams(); // Schedule ID from the route
